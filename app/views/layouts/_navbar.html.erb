@@ -1,0 +1,18 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <%= link_to "GPI", '#', id: "logo" %>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <% if user_signed_in? %>
+          <li>
+          <%= link_to('Cerrar sesión', destroy_user_session_path, method: :delete) %>
+          </li>
+        <% else %>
+          <li>
+          <%= link_to('Inciar sesión', new_user_session_path)  %>
+          </li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</header>

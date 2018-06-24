@@ -7,7 +7,7 @@ class User < ApplicationRecord
     self.role ||= :user
   end
 
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable,
          :recoverable, :rememberable, :trackable, :validatable
 
 end
