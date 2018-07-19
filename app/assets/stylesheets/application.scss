@@ -1,9 +1,8 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-/* mixins, variables, etc. */
 
-$gray-medium-light: #eaeaea;
+/* mixins, variables, etc. */
 
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
@@ -11,6 +10,7 @@ $gray-medium-light: #eaeaea;
   box-sizing:         border-box;
 }
 
+$gray-medium-light: #eaeaea;
 
 /* universal */
 
@@ -47,10 +47,12 @@ h1 {
 }
 
 h2 {
-  font-size: 3em;
-  letter-spacing: -2px;
+  font-size: 1.2em;
+  letter-spacing: -1px;
   margin-bottom: 30px;
   text-align: center;
+  font-weight: normal;
+  color: $gray-light;
 }
 
 p {
@@ -78,22 +80,13 @@ p {
 
 /* forms */
 
-input[type='password'],
-input[type='email'],
-input[type='submit'], 
-textarea, select, .uneditable-input {
+input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
   width: 100%;
   margin-bottom: 15px;
   @include box_sizing;
 }
 
-
 input {
   height: auto !important;
-}
-
-.new_user {
-  width: 40%;
-  margin: auto;
 }

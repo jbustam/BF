@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @usuario.nombre %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @usuario.email %>
+</p>
+
+<p>
+  <strong>Rol:</strong>
+  <%= @usuario.rol %>
+</p>
+
+<% if can? :manage, @usuario %>
+  <%= link_to "Administrar usuarios", usuarios_path(@usuario) %>
+<% end %>
+<br />
+<%= link_to "Crear solicitud", new_solicitud_path(@solicitud) %>

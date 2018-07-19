@@ -1,0 +1,21 @@
+es:
+  activerecord:
+    models:
+      material: Material  #g
+      solicitud: Solicitud  #g
+      usuario: Usuario  #g
+
+    attributes:
+      material:
+        nombre: Nombre  #g
+        solicituds: Aplicaciones  #g
+
+      solicitud:
+        materials: Materiales  #g
+        usuario: Usuario  #g
+
+      usuario:
+        email: Email  #g
+        nombre: Nombre  #g
+        rol: Rol  #g
+        password_digest: Resumen de contraseña  #g

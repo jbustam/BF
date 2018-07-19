@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  match '/users',   to: 'users#view',   via: 'get'
-  get 'pages/manage_users'
-  devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout'}
-  root to: "pages#index"
+  get 'sessions/new'
+  resources :solicituds
+  resources :usuarios
+  get    '/login',   to: 'sessions#new'
+  post   '/login',   to: 'sessions#create'
+  delete '/logout',  to: 'sessions#destroy'
+  root 'sessions#new'
 end
