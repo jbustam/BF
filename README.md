@@ -1,24 +1,13 @@
 # README
+Para correr la aplicacion:
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+```
+git clone https://github.com/jbustam/BF
+cd BF
+bundle install
+rails db:migrate
+rails db:seed
+rails sever
+```
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Hay un admin por defecto, con mail admin@ejemplo.com y contraseña 1234
