@@ -1,14 +1,32 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Usuario:</strong>
-  <%= @solicitud.usuario.nombre %>
-</p>
+<h1>Solicitud de <%= @solicitud.usuario.nombre %></h1>
 
-<p>
-  <strong>Materiales:</strong>
-  <%= @solicitud.materials %>
-</p>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Material</th>
+      <th>Cantidad</th>
+      <th colspan="2">Opciones</th>
+    </tr>
+  </thead>
 
-<%= link_to 'Edit', edit_solicitud_path(@solicitud) %> |
+  <tbody>
+    <tr>
+      <td><%= @solicitud.nombre %></td>
+    <% @solicitud.materials.each do |producto| %>
+
+      <td><%= producto.descripcion %></td>
+      <td><%= producto.cantidad %></td>
+      <td><%= link_to 'Editar', solicituds_path %></td>
+      <td><%= link_to 'Eliminar', solicituds_path %></td>
+    </tr>
+  <% end %>
+</tbody>
+</table>
+
+
+
+<%= link_to 'Agregar materiales', edit_solicitud_path(@solicitud) %> |
 <%= link_to 'Back', solicituds_path %>

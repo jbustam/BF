@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_19_232435) do
+ActiveRecord::Schema.define(version: 2018_08_04_202740) do
 
   create_table "materials", force: :cascade do |t|
     t.string "descripcion"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2018_07_19_232435) do
     t.integer "usuario_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "nombre"
     t.index ["usuario_id"], name: "index_solicituds_on_usuario_id"
   end
 

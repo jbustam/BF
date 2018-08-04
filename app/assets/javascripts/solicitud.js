@@ -25,7 +25,7 @@ function addMaterialsField() {
     //and append it to <li> element
     var labeldescripcion = document.createElement("label");
     labeldescripcion.setAttribute("for", idAttributdescripcion);
-    var descripcionLabelText = document.createTextNode("descripcion");
+    var descripcionLabelText = document.createTextNode("Descripción");
     labeldescripcion.appendChild(descripcionLabelText);
     li.appendChild(labeldescripcion);
 
@@ -41,7 +41,7 @@ function addMaterialsField() {
     //and append it to <li> element
     var labelcantidad = document.createElement("label");
     labelcantidad.setAttribute("for", idAttributcantidad);
-    var cantidadLabelText = document.createTextNode("cantidad");
+    var cantidadLabelText = document.createTextNode("Cantidad");
     labelcantidad.appendChild(cantidadLabelText);
     li.appendChild(labelcantidad);
 
