@@ -2,7 +2,12 @@
 
 <p>
   <strong>Usuario:</strong>
-  <%= @solicitud.usuario %>
+  <%= @solicitud.usuario.nombre %>
+</p>
+
+<p>
+  <strong>Materiales:</strong>
+  <%= @solicitud.materials %>
 </p>
 
 <%= link_to 'Edit', edit_solicitud_path(@solicitud) %> |
