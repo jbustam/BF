@@ -7,6 +7,7 @@
     <tr>
       <th>Material</th>
       <th>Cantidad</th>
+      <th>Estado</th>
       <th colspan="2">Opciones</th>
     </tr>
   </thead>
@@ -16,6 +17,7 @@
       <% @solicitud.materials.each do |producto| %>
         <td><%= producto.descripcion %></td>
         <td><%= producto.cantidad %></td>
+        <td> </td>
         <td><%= link_to 'Editar', solicituds_path %></td>
         <td><%= link_to 'Eliminar', solicituds_path %></td>
     </tr>

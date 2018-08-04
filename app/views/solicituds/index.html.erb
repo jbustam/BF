@@ -6,6 +6,9 @@
   <thead>
     <tr>
       <th>Creada por</th>
+      <th>Estado</th>
+      <th>Supervisor acargo</th>
+      <th>Bodega</th>
       <th colspan="3">Opciones</th>
     </tr>
   </thead>
@@ -14,6 +17,9 @@
     <% @solicituds.each do |solicitud| %>
       <tr>
         <td><%= solicitud.usuario.nombre %></td>
+        <td> </td>
+        <td> </td>
+        <td> </td>
         <td><%= link_to 'Ver', solicitud %></td>
         <td><%= link_to 'Editar', edit_solicitud_path(solicitud) %></td>
         <td><%= link_to 'Eliminar', solicitud, method: :delete, data: { confirm: 'Are you sure?' } %></td>
