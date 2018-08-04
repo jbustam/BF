@@ -23,7 +23,7 @@
 
   <div class="field">
     <%= form.label :rol %>
-    <%= select_tag :rol, options_for_select(Usuario.rols) %>
+    <%= form.select :rol, options_for_select(Usuario.rols.map {|k, v| [k, k]}) %>
   </div>
 
   <div class="field">

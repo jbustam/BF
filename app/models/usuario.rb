@@ -1,8 +1,8 @@
 class Usuario < ApplicationRecord
 
-  enum rol: [:usuario, :admin]
+  enum rol: [:usuario, :admin, :bodeguero, :jefatura]
   has_many :solicituds
-  
+
   before_save { self.email = email.downcase }
   validates :nombre,  presence: true, length: { maximum: 50 }
   validates :email, presence: true, length: { maximum: 255 },
