@@ -1,15 +1,18 @@
 class SolicitudsController < ApplicationController
   before_action :set_solicitud, only: [:show, :edit, :update, :destroy]
 
+
   # GET /solicituds
   # GET /solicituds.json
   def index
     @solicituds = Solicitud.all
+    
   end
 
   # GET /solicituds/1
   # GET /solicituds/1.json
   def show
+    authorize! :read, @solicitud
   end
 
   # GET /solicituds/new
@@ -42,6 +45,7 @@ class SolicitudsController < ApplicationController
   # PATCH/PUT /solicituds/1
   # PATCH/PUT /solicituds/1.json
   def update
+    authorize! :update, @solicitud
     respond_to do |format|
       if @solicitud.update(solicitud_params)
         format.html { redirect_to @solicitud, notice: 'La solicitud fue actualizada correctamente' }
@@ -57,6 +61,7 @@ class SolicitudsController < ApplicationController
   # DELETE /solicituds/1.json
   def destroy
     @solicitud.destroy
+    authorize! :delete, @solicitud
     respond_to do |format|
       format.html { redirect_to solicituds_url, notice: 'La solicitud fue eliminada correctamente' }
       format.json { head :no_content }

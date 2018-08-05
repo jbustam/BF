@@ -1,6 +1,6 @@
 class Usuario < ApplicationRecord
 
-  enum rol: [:usuario, :admin, :bodeguero, :jefatura]
+  enum rol: [:usuario, :jefatura, :bodeguero]
   has_many :solicituds
 
   before_save { self.email = email.downcase }

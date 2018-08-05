@@ -11,12 +11,13 @@
   </thead>
 
   <tbody>
-    <% @solicituds.each do |solicitud| %>
+    <% @solicituds = Solicitud.accessible_by(current_ability) 
+    @solicituds.each do |solicitud| %>
       <tr>
         <td><%= solicitud.usuario.nombre %></td>
         <td><%= link_to 'Ver', solicitud %></td>
         <td><%= link_to 'Editar', edit_solicitud_path(solicitud) %></td>
-        <td><%= link_to 'Eliminar', solicitud, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Eliminar', solicitud, method: :delete, data: { confirm: '¿Esta seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>

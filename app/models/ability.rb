@@ -3,8 +3,12 @@ class Ability
 
   def initialize(user)
     user ||= User.new # guest user (not logged in)
-    if user.admin?
+    
+    if user.jefatura?
       can :manage, :all
+    elsif user.usuario?
+      can :manage, Solicitud, :usuario_id => user.id
     end
+
   end
 end
