@@ -16,11 +16,20 @@
     <%= form.text_field :nombre %>
   </div>
 
+  <% if can? :edit_status, @solicitud %>
+    <div class="field">
+      <%= form.label :estado %>
+      <%= form.select(:estado, [['Nuevo', 'Nuevo'], ['Aceptado', 'Aceptado'],
+                                ['Rechazado', 'Rechazado']]) %>
+    </div>
+  <% end %>
+
+
   <div id="materialHeader" style="display:none">
      Materiales:
   </div>
   <br />
-  <ul id="myList">
+  <ul id="materialesSolicitud">
   </ul>
   <%= submit_tag "Agregar material", :type =>  "button",
       :id => "addMaterial", :onclick => 'addMaterialsField()'%>

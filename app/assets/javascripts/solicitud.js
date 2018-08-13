@@ -54,8 +54,8 @@ function addMaterialsField() {
     li.appendChild(inputcantidad);
 
     //add created <li> element with its child elements
-    //(label and input) to myList (<ul>) element
-    document.getElementById("myList").appendChild(li);
+    //(label and input) to materialesSolicitud (<ul>) element
+    document.getElementById("materialesSolicitud").appendChild(li);
 
     //show material header
     $("#materialHeader").show();
