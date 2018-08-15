@@ -1,0 +1,20 @@
+<div class="sidenav">
+  <% if logged_in? %>
+    <div class="navhead">
+      Usuario: <%= current_user.nombre %>
+      <br />
+      Rol: <%= current_user.rol %>
+    </div>
+  <% end %>
+
+  <% if logged_in? %>
+
+    <% if can? :manage, @usuario %>
+      <%= link_to "Usuarios", usuarios_path(@usuario) %>
+    <% end %>
+
+    <%= link_to "Solicitudes", solicituds_path %>
+  <% end %>
+
+
+</div>

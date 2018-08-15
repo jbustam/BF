@@ -14,8 +14,14 @@ $gray-medium-light: #eaeaea;
 
 /* universal */
 
+.cont {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
 body {
   padding-top: 60px;
+  margin-left: 170px;
 }
 
 section {
@@ -75,8 +81,11 @@ p {
   &:hover {
     color: white;
     text-decoration: none;
+    background-color: #333;
   }
 }
+
+
 
 /* forms */
 
@@ -89,4 +98,61 @@ input, textarea, select, .uneditable-input {
 
 input {
   height: auto !important;
+}
+
+
+/* The navigation bar */
+.navbar {
+   overflow: hidden;
+   background-color: #333;
+   position: fixed; /* Set the navbar to fixed position */
+   top: 0; /* Position the navbar at the top of the page */
+   width: 100%; /* Full width */
+}
+
+/* Links inside the navbar */
+.navbar a {
+   float: right;
+   display: block;
+   color: #f2f2f2;
+   text-align: center;
+   padding: 14px 16px;
+   text-decoration: none;
+}
+
+/* Change background on mouse-over */
+.navbar a:hover {
+   background: #ddd;
+   color: black;
+}
+
+/* Main content */
+
+.sidenav {
+   height: 100%;
+   width: 160px;
+   position: fixed;
+   z-index: 1;
+   top: 0;
+   left: 0;
+   background-color: #111;
+   overflow-x: hidden;
+   padding-top: 70px;
+}
+
+.sidenav a {
+   padding: 6px 8px 6px 16px;
+   text-decoration: none;
+   color: #818181;
+   display: block;
+}
+
+.sidenav a:hover {
+   color: #f1f1f1;
+}
+
+.navhead {
+  color: white;
+  padding: 5px;
+  background-color: #333;
 }
