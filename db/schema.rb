@@ -10,23 +10,47 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_13_202404) do
+ActiveRecord::Schema.define(version: 2018_08_17_014217) do
 
-  create_table "materials", force: :cascade do |t|
-    t.string "descripcion"
+  create_table "bodegas", force: :cascade do |t|
+    t.string "nombre"
+    t.string "ubicacion"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "bodegas_materials", force: :cascade do |t|
+    t.integer "material_id"
+    t.integer "bodega_id"
     t.integer "cantidad"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["bodega_id"], name: "index_bodegas_materials_on_bodega_id"
+    t.index ["material_id"], name: "index_bodegas_materials_on_material_id"
+  end
+
+  create_table "materials", force: :cascade do |t|
+    t.string "descripcion"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "materials_solicituds", force: :cascade do |t|
+    t.integer "material_id"
     t.integer "solicitud_id"
-    t.index ["solicitud_id"], name: "index_materials_on_solicitud_id"
+    t.integer "cantidad"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["material_id"], name: "index_materials_solicituds_on_material_id"
+    t.index ["solicitud_id"], name: "index_materials_solicituds_on_solicitud_id"
   end
 
   create_table "solicituds", force: :cascade do |t|
     t.integer "usuario_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.string "nombre"
     t.string "estado"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["usuario_id"], name: "index_solicituds_on_usuario_id"
   end
 

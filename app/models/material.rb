@@ -1,4 +1,4 @@
 class Material < ApplicationRecord
-  belongs_to :solicitud
-
+  has_many :materials_solicituds
+  has_many :solicituds, through: :materials_solicituds
 end

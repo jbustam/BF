@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Bodegas</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Ubicacion</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bodegas.each do |bodega| %>
+      <tr>
+        <td><%= bodega.nombre %></td>
+        <td><%= bodega.ubicacion %></td>
+        <td><%= link_to 'Show', bodega %></td>
+        <td><%= link_to 'Edit', edit_bodega_path(bodega) %></td>
+        <td><%= link_to 'Destroy', bodega, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Bodega', new_bodega_path %>

@@ -20,8 +20,8 @@
 
   <tbody>
     <tr>
-      <% @solicitud.materials.each do |producto| %>
-        <td><%= producto.descripcion %></td>
+      <% @solicitud.materials_solicituds.each do |producto| %>
+        <td><%= Material.find_by(id: producto.material_id).descripcion %></td>
         <td><%= producto.cantidad %></td>
         <td><%= link_to 'Editar', solicituds_path %></td>
         <td><%= link_to 'Eliminar', solicituds_path %></td>

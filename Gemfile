@@ -5,6 +5,7 @@ ruby '2.4.4'
 gem 'i18n_generators'
 gem 'bcrypt'
 gem 'cancan'
+gem "cocoon"
 gem 'bootstrap-sass'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.0'
