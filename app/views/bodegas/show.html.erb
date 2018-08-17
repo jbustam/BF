@@ -1,14 +1,29 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Nombre:</strong>
-  <%= @bodega.nombre %>
-</p>
+<h1><%= @bodega.nombre %></h1>
 
-<p>
-  <strong>Ubicacion:</strong>
-  <%= @bodega.ubicacion %>
-</p>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Material</th>
+      <th>Cantidad</th>
+      <th colspan="2">Opciones</th>
+    </tr>
+  </thead>
 
-<%= link_to 'Edit', edit_bodega_path(@bodega) %> |
-<%= link_to 'Back', bodegas_path %>
+  <tbody>
+    <tr>
+      <% @bodega.bodegas_materials.each do |producto| %>
+        <td><%= Material.find_by(id: producto.material_id).descripcion %></td>
+        <td><%= producto.cantidad %></td>
+        <td><%= link_to 'Editar', solicituds_path %></td>
+        <td><%= link_to 'Eliminar', solicituds_path %></td>
+    </tr>
+      <% end %>
+</tbody>
+</table>
+
+
+
+<%= link_to 'Agregar materiales', edit_bodega_path(@bodega) %> |
+<%= link_to 'Volver', bodegas_path %>

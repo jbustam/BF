@@ -33,6 +33,14 @@ class SolicitudsController < ApplicationController
 
     respond_to do |format|
       if @solicitud.save
+
+        solicitud_params[:materials_attributes].values.each do |material_attribute|
+          material = Material.find_by(descripcion: material_attribute[:descripcion])
+          mat_sol = MaterialsSolicitud.find_by(material_id: material.id,
+            solicitud_id: @solicitud.id)
+          MaterialsSolicitud.update(mat_sol.id, cantidad: material_attribute[:cantidad])
+        end
+
         format.html { redirect_to @solicitud, notice: 'La solicitud fue creada correctamente' }
         format.json { render :show, status: :created, location: @solicitud }
       else

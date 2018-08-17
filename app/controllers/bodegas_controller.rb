@@ -15,6 +15,7 @@ class BodegasController < ApplicationController
   # GET /bodegas/new
   def new
     @bodega = Bodega.new
+    2.times { @bodega.materials.build }
   end
 
   # GET /bodegas/1/edit
@@ -28,6 +29,7 @@ class BodegasController < ApplicationController
 
     respond_to do |format|
       if @bodega.save
+        actualizar
         format.html { redirect_to @bodega, notice: 'Bodega was successfully created.' }
         format.json { render :show, status: :created, location: @bodega }
       else
@@ -42,6 +44,7 @@ class BodegasController < ApplicationController
   def update
     respond_to do |format|
       if @bodega.update(bodega_params)
+        actualizar
         format.html { redirect_to @bodega, notice: 'Bodega was successfully updated.' }
         format.json { render :show, status: :ok, location: @bodega }
       else
@@ -67,8 +70,18 @@ class BodegasController < ApplicationController
       @bodega = Bodega.find(params[:id])
     end
 
+    def actualizar
+      bodega_params[:materials_attributes].values.each do |material_attribute|
+        material = Material.find_by(descripcion: material_attribute[:descripcion])
+        mat_bod = BodegasMaterial.find_by(material_id: material.id,
+          bodega_id: @bodega.id)
+        BodegasMaterial.update(mat_bod.id, cantidad: material_attribute[:cantidad])
+      end
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def bodega_params
-      params.require(:bodega).permit(:nombre, :ubicacion)
+      params.require(:bodega).permit(:nombre, :ubicacion,
+        :materials_attributes => [:id, :descripcion, :cantidad])
     end
 end

@@ -16,10 +16,22 @@
     <%= form.text_field :nombre %>
   </div>
 
+
   <div class="field">
     <%= form.label :ubicacion %>
     <%= form.text_field :ubicacion %>
   </div>
+
+    <div id="materialHeader">
+       <h2>Materiales</h2>
+    </div>
+    <br />
+    <ul id="materialesBodega">
+    </ul>
+    <%= submit_tag "Agregar material", :type =>  "button",
+        :id => "addMaterial", :onclick => 'addMaterialsBodegaField()'%>
+    <br />
+
 
   <div class="actions">
     <%= form.submit %>
