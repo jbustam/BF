@@ -1,6 +1,7 @@
 class Solicitud < ApplicationRecord
 
   belongs_to :usuario
+  belongs_to :bodega
 
   has_many :materials_solicituds, inverse_of: :solicitud
   has_many :materials, through: :materials_solicituds

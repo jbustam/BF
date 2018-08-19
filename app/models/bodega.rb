@@ -2,6 +2,8 @@ class Bodega < ApplicationRecord
   has_many :bodegas_materials
   has_many :materials, through: :bodegas_materials
 
+  has_many :solicituds
+
   accepts_nested_attributes_for :bodegas_materials
   accepts_nested_attributes_for :materials
 

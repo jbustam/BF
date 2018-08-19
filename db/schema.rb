@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_17_014217) do
+ActiveRecord::Schema.define(version: 2018_08_19_020650) do
 
   create_table "bodegas", force: :cascade do |t|
     t.string "nombre"
@@ -51,6 +51,8 @@ ActiveRecord::Schema.define(version: 2018_08_17_014217) do
     t.string "estado"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "bodega_id"
+    t.index ["bodega_id"], name: "index_solicituds_on_bodega_id"
     t.index ["usuario_id"], name: "index_solicituds_on_usuario_id"
   end
 

@@ -71,11 +71,13 @@ class BodegasController < ApplicationController
     end
 
     def actualizar
-      bodega_params[:materials_attributes].values.each do |material_attribute|
-        material = Material.find_by(descripcion: material_attribute[:descripcion])
-        mat_bod = BodegasMaterial.find_by(material_id: material.id,
-          bodega_id: @bodega.id)
-        BodegasMaterial.update(mat_bod.id, cantidad: material_attribute[:cantidad])
+      if not bodega_params[:materials_attributes].nil?
+        bodega_params[:materials_attributes].values.each do |material_attribute|
+          material = Material.find_by(descripcion: material_attribute[:descripcion])
+          mat_bod = BodegasMaterial.find_by(material_id: material.id,
+            bodega_id: @bodega.id)
+          BodegasMaterial.update(mat_bod.id, cantidad: material_attribute[:cantidad])
+        end
       end
     end
 

@@ -16,6 +16,11 @@
     <%= form.text_field :nombre %>
   </div>
 
+  <div class="field">
+    <%= form.label :bodega %>
+    <%= form.select(:bodega_id, options_from_collection_for_select(Bodega.all, :id, :nombre)) %>
+  </div>
+
   <% if can? :edit_status, @solicitud %>
     <div class="field">
       <%= form.label :estado %>
