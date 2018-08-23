@@ -5,7 +5,7 @@
 <ul class="list-group">
   <li class="list-group-item">Estado: <%= @solicitud.estado %></li>
   <li class="list-group-item">Supervisor: </li>
-  <li class="list-group-item">Bodega: </li>
+  <li class="list-group-item">Bodega: <%= @solicitud.bodega.nombre %></li>
   <li class="list-group-item">Prioridad: </li>
 </ul>
 
@@ -14,7 +14,7 @@
     <tr>
       <th>Material</th>
       <th>Cantidad</th>
-      <th colspan="2">Opciones</th>
+      <th>Cantidad en bodega</th>
     </tr>
   </thead>
 
@@ -23,8 +23,15 @@
       <% @solicitud.materials_solicituds.each do |producto| %>
         <td><%= Material.find_by(id: producto.material_id).descripcion %></td>
         <td><%= producto.cantidad %></td>
-        <td><%= link_to 'Editar', solicituds_path %></td>
-        <td><%= link_to 'Eliminar', solicituds_path %></td>
+        <td><%= mat = BodegasMaterial.find_by(bodega: @solicitud.bodega,
+          material: producto.material)
+            if mat.nil?
+              0
+            elsif
+              ''
+              mat.cantidad
+            end
+          %></td>
     </tr>
       <% end %>
 </tbody>

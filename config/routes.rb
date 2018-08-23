@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :proveedors
   resources :bodegas
   get 'sessions/new'
   resources :solicituds
