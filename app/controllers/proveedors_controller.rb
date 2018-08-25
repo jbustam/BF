@@ -15,6 +15,7 @@ class ProveedorsController < ApplicationController
   # GET /proveedors/new
   def new
     @proveedor = Proveedor.new
+    2.times { @proveedor.materials.build }
   end
 
   # GET /proveedors/1/edit
@@ -28,7 +29,7 @@ class ProveedorsController < ApplicationController
 
     respond_to do |format|
       if @proveedor.save
-        format.html { redirect_to @proveedor, notice: 'Proveedor was successfully created.' }
+        format.html { redirect_to @proveedor, notice: 'Proveedor fue creado exitosamente' }
         format.json { render :show, status: :created, location: @proveedor }
       else
         format.html { render :new }
@@ -42,7 +43,7 @@ class ProveedorsController < ApplicationController
   def update
     respond_to do |format|
       if @proveedor.update(proveedor_params)
-        format.html { redirect_to @proveedor, notice: 'Proveedor was successfully updated.' }
+        format.html { redirect_to @proveedor, notice: 'Proveedor fue actualizado exitosamente' }
         format.json { render :show, status: :ok, location: @proveedor }
       else
         format.html { render :edit }
@@ -56,7 +57,7 @@ class ProveedorsController < ApplicationController
   def destroy
     @proveedor.destroy
     respond_to do |format|
-      format.html { redirect_to proveedors_url, notice: 'Proveedor was successfully destroyed.' }
+      format.html { redirect_to proveedors_url, notice: 'Proveedor fue eliminado exitosamente' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +70,7 @@ class ProveedorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def proveedor_params
-      params.require(:proveedor).permit(:nombre, :email, :telefono)
+      params.require(:proveedor).permit(:nombre, :email, :telefono,
+        :materials_attributes => [:id, :descripcion])
     end
 end

@@ -15,5 +15,21 @@
   <%= @proveedor.telefono %>
 </p>
 
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Materiales que vende</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <% @proveedor.materials_proveedors.each do |producto| %>
+        <td><%= Material.find_by(id: producto.material_id).descripcion %></td>
+    </tr>
+      <% end %>
+</tbody>
+</table>
+
 <%= link_to 'Editar', edit_proveedor_path(@proveedor) %> |
 <%= link_to 'Volver', proveedors_path %>

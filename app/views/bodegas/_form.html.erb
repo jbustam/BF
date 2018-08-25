@@ -1,7 +1,7 @@
 <%= form_with(model: bodega, local: true) do |form| %>
   <% if bodega.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(bodega.errors.count, "error") %> prohibited this bodega from being saved:</h2>
+      <h2>No se pudo crear la bodega</h2>
 
       <ul>
       <% bodega.errors.full_messages.each do |message| %>

@@ -30,7 +30,7 @@ class BodegasController < ApplicationController
     respond_to do |format|
       if @bodega.save
         actualizar
-        format.html { redirect_to @bodega, notice: 'Bodega was successfully created.' }
+        format.html { redirect_to @bodega, notice: 'Bodega fue creada exitosamente' }
         format.json { render :show, status: :created, location: @bodega }
       else
         format.html { render :new }
@@ -45,7 +45,7 @@ class BodegasController < ApplicationController
     respond_to do |format|
       if @bodega.update(bodega_params)
         actualizar
-        format.html { redirect_to @bodega, notice: 'Bodega was successfully updated.' }
+        format.html { redirect_to @bodega, notice: 'Bodega fue actualizada exitosamente' }
         format.json { render :show, status: :ok, location: @bodega }
       else
         format.html { render :edit }
@@ -59,7 +59,7 @@ class BodegasController < ApplicationController
   def destroy
     @bodega.destroy
     respond_to do |format|
-      format.html { redirect_to bodegas_url, notice: 'Bodega was successfully destroyed.' }
+      format.html { redirect_to bodegas_url, notice: 'Bodega fue eliminada exitosamente' }
       format.json { head :no_content }
     end
   end

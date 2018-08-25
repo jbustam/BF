@@ -1,7 +1,7 @@
 <%= form_with(model: proveedor, local: true) do |form| %>
   <% if proveedor.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(proveedor.errors.count, "error") %> prohibited this proveedor from being saved:</h2>
+      <h2>No se pudo crear el proveedor</h2>
 
       <ul>
       <% proveedor.errors.full_messages.each do |message| %>
@@ -25,6 +25,16 @@
     <%= form.label :telefono %>
     <%= form.text_field :telefono %>
   </div>
+
+  <div id="materialHeader">
+     <h2>Materiales que vende</h2>
+  </div>
+  <br />
+  <ul id="materialesProveedor">
+  </ul>
+  <%= submit_tag "Agregar material", :type =>  "button",
+      :id => "addMaterial", :onclick => 'addMaterialsProveedorField()'%>
+  <br />
 
   <div class="actions">
     <%= form.submit %>

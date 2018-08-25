@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :orden_de_compras
   resources :proveedors
   resources :bodegas
   get 'sessions/new'

@@ -16,9 +16,9 @@
       <tr>
         <td><%= bodega.nombre %></td>
         <td><%= bodega.ubicacion %></td>
-        <td><%= link_to 'Show', bodega %></td>
-        <td><%= link_to 'Edit', edit_bodega_path(bodega) %></td>
-        <td><%= link_to 'Destroy', bodega, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Detalles', bodega %></td>
+        <td><%= link_to 'Editar', edit_bodega_path(bodega) %></td>
+        <td><%= link_to 'Eliminar', bodega, method: :delete, data: { confirm: '¿Seguro que desea eliminar esta bodega?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Bodega', new_bodega_path %>
+<%= link_to 'Nueva Bodega', new_bodega_path %>
