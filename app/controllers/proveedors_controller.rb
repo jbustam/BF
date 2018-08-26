@@ -12,6 +12,10 @@ class ProveedorsController < ApplicationController
   def show
   end
 
+  def cotizar
+    @proveedors = Proveedor.all
+  end
+
   # GET /proveedors/new
   def new
     @proveedor = Proveedor.new

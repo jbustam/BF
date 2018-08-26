@@ -18,7 +18,7 @@
         <td><%= orden_de_compra.cantidad %></td>
         <td><%= link_to 'Detalles', orden_de_compra %></td>
         <td><%= link_to 'Editar', edit_orden_de_compra_path(orden_de_compra) %></td>
-        <td><%= link_to 'Cotizar', "#" %></td>
+        <td><%= link_to 'Cotizar', cotizar_path(material_id: orden_de_compra.material_id) %></td>
         <td><%= link_to 'Eliminar', orden_de_compra, method: :delete, data: { confirm: '¿Esta seguro?' } %></td>
       </tr>
     <% end %>
