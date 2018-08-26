@@ -28,7 +28,7 @@ class OrdenDeComprasController < ApplicationController
 
     respond_to do |format|
       if @orden_de_compra.save
-        format.html { redirect_to @orden_de_compra, notice: 'Orden de compra was successfully created.' }
+        format.html { redirect_to @orden_de_compra, notice: 'Orden de compra creada exitosamente' }
         format.json { render :show, status: :created, location: @orden_de_compra }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class OrdenDeComprasController < ApplicationController
   def update
     respond_to do |format|
       if @orden_de_compra.update(orden_de_compra_params)
-        format.html { redirect_to @orden_de_compra, notice: 'Orden de compra was successfully updated.' }
+        format.html { redirect_to @orden_de_compra, notice: 'Orden de compra actualizada exitosamente' }
         format.json { render :show, status: :ok, location: @orden_de_compra }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class OrdenDeComprasController < ApplicationController
   def destroy
     @orden_de_compra.destroy
     respond_to do |format|
-      format.html { redirect_to orden_de_compras_url, notice: 'Orden de compra was successfully destroyed.' }
+      format.html { redirect_to orden_de_compras_url, notice: 'Orden de compra eliminada exitosamente' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +69,6 @@ class OrdenDeComprasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def orden_de_compra_params
-      params.require(:orden_de_compra).permit(:id_material, :cantidad)
+      params.require(:orden_de_compra).permit(:material_id, :cantidad)
     end
 end

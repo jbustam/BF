@@ -1,29 +1,28 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Orden De Compras</h1>
+<h1>Ordenes De Compra</h1>
 
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
-      <th>Id material</th>
+      <th>Material</th>
       <th>Cantidad</th>
-      <th colspan="3"></th>
+      <th colspan="4"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @orden_de_compras.each do |orden_de_compra| %>
       <tr>
-        <td><%= orden_de_compra.id_material %></td>
+        <td><%= Material.find_by(id: orden_de_compra.material_id).descripcion %></td>
         <td><%= orden_de_compra.cantidad %></td>
-        <td><%= link_to 'Show', orden_de_compra %></td>
-        <td><%= link_to 'Edit', edit_orden_de_compra_path(orden_de_compra) %></td>
-        <td><%= link_to 'Destroy', orden_de_compra, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Detalles', orden_de_compra %></td>
+        <td><%= link_to 'Editar', edit_orden_de_compra_path(orden_de_compra) %></td>
+        <td><%= link_to 'Cotizar', "#" %></td>
+        <td><%= link_to 'Eliminar', orden_de_compra, method: :delete, data: { confirm: '¿Esta seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Orden De Compra', new_orden_de_compra_path %>

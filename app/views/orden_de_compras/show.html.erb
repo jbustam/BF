@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Id material:</strong>
-  <%= @orden_de_compra.id_material %>
+  <strong>Material:</strong>
+  <%= Material.find_by(id: @orden_de_compra.marial_id).descripcion %>
 </p>
 
 <p>
@@ -10,5 +10,5 @@
   <%= @orden_de_compra.cantidad %>
 </p>
 
-<%= link_to 'Edit', edit_orden_de_compra_path(@orden_de_compra) %> |
-<%= link_to 'Back', orden_de_compras_path %>
+<%= link_to 'Editar', edit_orden_de_compra_path(@orden_de_compra, material_id: @orden_de_compra.material_id) %> |
+<%= link_to 'Volver', orden_de_compras_path %>

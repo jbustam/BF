@@ -55,10 +55,11 @@ ActiveRecord::Schema.define(version: 2018_08_25_201920) do
   end
 
   create_table "orden_de_compras", force: :cascade do |t|
-    t.integer "id_material"
     t.integer "cantidad"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "material_id"
+    t.index ["material_id"], name: "index_orden_de_compras_on_material_id"
   end
 
   create_table "proveedors", force: :cascade do |t|
