@@ -12,6 +12,14 @@ class ProveedorsController < ApplicationController
   def show
   end
 
+  def enviar_email
+    @proveedor = Proveedor.find(params[:proveedor])
+    @material = Material.find(params[:material])
+
+    ProveedorMailer.with(proveedor: @proveedor, material: @material).cotizar_email.deliver
+    redirect_to cotizar_path(material_id: @material.id)
+  end
+
   def cotizar
     @proveedors = Proveedor.all
   end

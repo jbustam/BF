@@ -10,5 +10,6 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
   root 'sessions#new'
 
+  get :enviar_email, to: 'proveedors#enviar_email', as: :enviar_email
   get    '/cotizar',   to: 'proveedors#cotizar'
 end
