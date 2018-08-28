@@ -70,6 +70,16 @@ class SolicitudsController < ApplicationController
     end
   end
 
+  def destroy_material
+    @producto = MaterialsSolicitud.find(params[:producto])
+    @producto.destroy
+    authorize! :delete, @producto
+    respond_to do |format|
+      format.html { redirect_to solicitud_url(params[:solicitud]), notice: 'El materia fue eliminado correctamente' }
+      format.json { head :no_content }
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_solicitud

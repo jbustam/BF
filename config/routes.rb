@@ -12,4 +12,8 @@ Rails.application.routes.draw do
 
   get :enviar_email, to: 'proveedors#enviar_email', as: :enviar_email
   get    '/cotizar',   to: 'proveedors#cotizar'
+  get :destroy_material, to: 'solicituds#destroy_material', as: :destroy_material
+  get :destroy_material_bodega, to: 'bodegas#destroy_material', as: :destroy_material_bodega
+  get :destroy_material_proveedor, to: 'proveedors#destroy_material', as: :destroy_material_proveedor
+
 end

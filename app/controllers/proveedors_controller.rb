@@ -12,6 +12,16 @@ class ProveedorsController < ApplicationController
   def show
   end
 
+  def destroy_material
+    @producto = MaterialsProveedor.find(params[:producto])
+    @producto.destroy
+    authorize! :delete, @producto
+    respond_to do |format|
+      format.html { redirect_to proveedor_url(params[:proveedor]), notice: 'El material fue eliminado correctamente' }
+      format.json { head :no_content }
+    end
+  end
+
   def enviar_email
     @proveedor = Proveedor.find(params[:proveedor])
     @material = Material.find(params[:material])

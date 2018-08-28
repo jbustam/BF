@@ -15,8 +15,7 @@
       <th>Material</th>
       <th>Cantidad</th>
       <th>Cantidad en bodega</th>
-      <th>Opciones
-      </th>
+      <th colspan="2">Opciones </th>
     </tr>
   </thead>
 
@@ -35,6 +34,7 @@
             end
           %></td>
         <td><%= link_to 'Comprar material', new_orden_de_compra_path(material_id: producto.material_id) %></td>
+        <td><%= link_to 'Eliminar', destroy_material_url(producto: producto, solicitud: @solicitud), data: { confirm: '¿Esta seguro?' } %></td>
     </tr>
       <% end %>
 </tbody>

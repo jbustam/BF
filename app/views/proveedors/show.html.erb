@@ -19,6 +19,7 @@
   <thead>
     <tr>
       <th>Materiales que vende</th>
+      <th>Eliminar</th>
     </tr>
   </thead>
 
@@ -26,6 +27,7 @@
     <tr>
       <% @proveedor.materials_proveedors.each do |producto| %>
         <td><%= Material.find_by(id: producto.material_id).descripcion %></td>
+        <td><%= link_to 'Eliminar', destroy_material_proveedor_url(producto: producto, proveedor: @proveedor), data: { confirm: '¿Esta seguro?' } %>
     </tr>
       <% end %>
 </tbody>

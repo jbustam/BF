@@ -12,6 +12,16 @@ class BodegasController < ApplicationController
   def show
   end
 
+  def destroy_material
+    @producto = BodegasMaterial.find(params[:producto])
+    @producto.destroy
+    authorize! :delete, @producto
+    respond_to do |format|
+      format.html { redirect_to bodega_url(params[:bodega]), notice: 'El materia fue eliminado correctamente' }
+      format.json { head :no_content }
+    end
+  end
+
   # GET /bodegas/new
   def new
     @bodega = Bodega.new
