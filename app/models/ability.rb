@@ -32,7 +32,7 @@ class Ability
     elsif user.usuario?
       can :read, Usuario, :id => user.id
       can :manage, Solicitud, :usuario_id => user.id
-      cannot :edit, Solicitud, :estado => ['Rechazado', 'Aceptado']
+      cannot :edit, Solicitud, :estado => ['Rechazado', 'Aceptado', 'En espera', 'Atendido', 'Recibido']
       cannot :edit_status, Solicitud
 
     end

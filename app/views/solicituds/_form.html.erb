@@ -25,7 +25,8 @@
     <div class="field">
       <%= form.label :estado %>
       <%= form.select(:estado, [['Nuevo', 'Nuevo'], ['Aceptado', 'Aceptado'],
-                                ['Rechazado', 'Rechazado']]) %>
+                                ['Rechazado', 'Rechazado'], ['Atendido', 'Atendido'],
+                                 ['En espera', 'En espera'], ['Recibido', 'Recibido']]) %>
     </div>
   <% end %>
 

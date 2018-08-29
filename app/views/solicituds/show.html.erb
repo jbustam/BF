@@ -14,7 +14,7 @@
       <th>Material</th>
       <th>Cantidad</th>
       <th>Cantidad en bodega</th>
-      <th colspan="2">Opciones </th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
@@ -32,14 +32,15 @@
               mat.cantidad
             end
           %></td>
+        <%if can? :edit, @solicitud %>
         <td><%= link_to 'Comprar material', new_orden_de_compra_path(material_id: producto.material_id) %></td>
         <td><%= link_to 'Eliminar', destroy_material_url(producto: producto, solicitud: @solicitud), data: { confirm: '¿Esta seguro?' } %></td>
+        <%end%>
     </tr>
       <% end %>
 </tbody>
 </table>
 
-
-
-<%= link_to 'Agregar materiales', edit_solicitud_path(@solicitud) %> |
+<%if can? :edit, @solicitud %>
+<%= link_to 'Agregar materiales', edit_solicitud_path(@solicitud) %> | <%end%>
 <%= link_to 'Volver', solicituds_path %>
