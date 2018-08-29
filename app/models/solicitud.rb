@@ -12,7 +12,7 @@ class Solicitud < ApplicationRecord
   before_save :default
 
   def default
-    self.estado ||= 'nuevo'
+    self.estado ||= 'Nuevo'
   end
 
   def materials_attributes=(material_attributes)
