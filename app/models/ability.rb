@@ -10,7 +10,7 @@ class Ability
       can :manage, Solicitud, :usuario_id => user.id
       cannot :edit_status, Solicitud
     elsif user.bodeguero? || user.supervisor?
-      can :manage, Solicitud
+      can :manage, Solicitud, :estado => "Aceptado"
     end
 
   end
