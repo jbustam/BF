@@ -7,4 +7,6 @@ class Material < ApplicationRecord
 
   has_many :materials_proveedors
   has_many :proveedors, through: :materials_proveedors
+
+  before_save { self.descripcion = descripcion.downcase }
 end

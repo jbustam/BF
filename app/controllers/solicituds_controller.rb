@@ -1,6 +1,6 @@
 class SolicitudsController < ApplicationController
   before_action :set_solicitud, only: [:show, :edit, :update, :destroy]
-
+  authorize_resource
 
   # GET /solicituds
   # GET /solicituds.json
@@ -12,7 +12,6 @@ class SolicitudsController < ApplicationController
   # GET /solicituds/1
   # GET /solicituds/1.json
   def show
-    authorize! :read, @solicitud
   end
 
   # GET /solicituds/new
@@ -46,7 +45,6 @@ class SolicitudsController < ApplicationController
   # PATCH/PUT /solicituds/1
   # PATCH/PUT /solicituds/1.json
   def update
-    authorize! :update, @solicitud
     respond_to do |format|
       if @solicitud.update(solicitud_params)
         actualizar
@@ -63,7 +61,6 @@ class SolicitudsController < ApplicationController
   # DELETE /solicituds/1.json
   def destroy
     @solicitud.destroy
-    authorize! :delete, @solicitud
     respond_to do |format|
       format.html { redirect_to solicituds_url, notice: 'La solicitud fue eliminada correctamente' }
       format.json { head :no_content }
@@ -73,7 +70,7 @@ class SolicitudsController < ApplicationController
   def destroy_material
     @producto = MaterialsSolicitud.find(params[:producto])
     @producto.destroy
-    authorize! :delete, @producto
+
     respond_to do |format|
       format.html { redirect_to solicitud_url(params[:solicitud]), notice: 'El materia fue eliminado correctamente' }
       format.json { head :no_content }

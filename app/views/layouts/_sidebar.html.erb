@@ -9,14 +9,24 @@
 
   <% if logged_in? %>
 
-    <% if can? :manage, @usuario %>
+    <% if can? :manage, Usuario %>
       <%= link_to "Usuarios", usuarios_path(@usuario) %>
     <% end %>
 
     <%= link_to "Solicitudes", solicituds_path %>
-    <%= link_to "Bodegas", bodegas_path %>
-    <%= link_to "Proveedores", proveedors_path %>
-    <%= link_to "Ordenes de compra", orden_de_compras_path %>
+
+    <% if can? :manage, Bodega %>
+      <%= link_to "Bodegas", bodegas_path %>
+    <% end %>
+
+    <% if can? :read, Proveedor %>
+      <%= link_to "Proveedores", proveedors_path %>
+    <% end %>
+
+    <% if can? :read, OrdenDeCompra %>
+      <%= link_to "Ordenes de compra", orden_de_compras_path %>
+    <% end %>
+
   <% end %>
 
 

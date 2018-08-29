@@ -1,8 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Creada por:</strong>
+  <%= @orden_de_compra.usuario.nombre %>
+</p>
+
+<p>
   <strong>Material:</strong>
-  <%= Material.find_by(id: @orden_de_compra.marial_id).descripcion %>
+  <%= Material.find_by(id: @orden_de_compra.material_id).descripcion %>
 </p>
 
 <p>

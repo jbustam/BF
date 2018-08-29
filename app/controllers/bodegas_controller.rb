@@ -1,6 +1,6 @@
 class BodegasController < ApplicationController
   before_action :set_bodega, only: [:show, :edit, :update, :destroy]
-
+  authorize_resource
   # GET /bodegas
   # GET /bodegas.json
   def index
@@ -15,7 +15,7 @@ class BodegasController < ApplicationController
   def destroy_material
     @producto = BodegasMaterial.find(params[:producto])
     @producto.destroy
-    authorize! :delete, @producto
+
     respond_to do |format|
       format.html { redirect_to bodega_url(params[:bodega]), notice: 'El materia fue eliminado correctamente' }
       format.json { head :no_content }

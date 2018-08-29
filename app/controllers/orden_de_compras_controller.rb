@@ -1,5 +1,6 @@
 class OrdenDeComprasController < ApplicationController
   before_action :set_orden_de_compra, only: [:show, :edit, :update, :destroy]
+  authorize_resource
 
   # GET /orden_de_compras
   # GET /orden_de_compras.json
@@ -25,6 +26,7 @@ class OrdenDeComprasController < ApplicationController
   # POST /orden_de_compras.json
   def create
     @orden_de_compra = OrdenDeCompra.new(orden_de_compra_params)
+    @orden_de_compra.usuario_id = current_user.id
 
     respond_to do |format|
       if @orden_de_compra.save
@@ -69,6 +71,6 @@ class OrdenDeComprasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def orden_de_compra_params
-      params.require(:orden_de_compra).permit(:material_id, :cantidad)
+      params.require(:orden_de_compra).permit(:material_id, :cantidad, :usuario)
     end
 end

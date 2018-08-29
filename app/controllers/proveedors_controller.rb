@@ -1,5 +1,6 @@
 class ProveedorsController < ApplicationController
   before_action :set_proveedor, only: [:show, :edit, :update, :destroy]
+  authorize_resource
 
   # GET /proveedors
   # GET /proveedors.json
@@ -15,7 +16,7 @@ class ProveedorsController < ApplicationController
   def destroy_material
     @producto = MaterialsProveedor.find(params[:producto])
     @producto.destroy
-    authorize! :delete, @producto
+
     respond_to do |format|
       format.html { redirect_to proveedor_url(params[:proveedor]), notice: 'El material fue eliminado correctamente' }
       format.json { head :no_content }
@@ -31,6 +32,7 @@ class ProveedorsController < ApplicationController
   end
 
   def cotizar
+    authorize! :cotizar, @proveedor
     @proveedors = Proveedor.all
   end
 
