@@ -14,7 +14,7 @@ class Ability
       can :read, Usuario, :id => user.id
       can :manage, Solicitud
       can :manage, Bodega
-      can :manage, OrdenDeCompra, :usuario_id => user.id
+      can :manage, OrdenDeCompra
       cannot :edit, OrdenDeCompra, :estado => ['Cotizando', 'Aceptado', 'Rechazado']
       cannot :edit_status, Solicitud
       cannot :edit_status, OrdenDeCompra
@@ -22,6 +22,7 @@ class Ability
     elsif user.usuario?
       can :read, Usuario, :id => user.id
       can :manage, Solicitud, :usuario_id => user.id
+      cannot :edit, Solicitud, :estado => ['Rechazado', 'Aceptado']
       cannot :edit_status, Solicitud
 
     end
