@@ -19,7 +19,7 @@
   <thead>
     <tr>
       <th>Materiales que vende</th>
-      <th>Eliminar</th>
+      <th></th>
     </tr>
   </thead>
 
@@ -27,11 +27,13 @@
     <tr>
       <% @proveedor.materials_proveedors.each do |producto| %>
         <td><%= Material.find_by(id: producto.material_id).descripcion %></td>
+        <% if can? :edit, producto %>
         <td><%= link_to 'Eliminar', destroy_material_proveedor_url(producto: producto, proveedor: @proveedor), data: { confirm: '¿Esta seguro?' } %>
+        <%end%>
     </tr>
       <% end %>
 </tbody>
 </table>
 
-<%= link_to 'Editar', edit_proveedor_path(@proveedor) %> |
+<% if can? :edit, @proveedor%> <%= link_to 'Editar', edit_proveedor_path(@proveedor) %> | <%end%>
 <%= link_to 'Volver', proveedors_path %>

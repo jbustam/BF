@@ -10,7 +10,17 @@ class Ability
       can :edit_status, OrdenDeCompra
       can :edit_status, Solicitud
 
-    elsif user.bodeguero? || user.supervisor?
+    elsif user.supervisor?
+      can :read, Usuario, :id => user.id
+      can :manage, Solicitud
+      can :manage, Bodega
+      can :manage, OrdenDeCompra
+      cannot :edit, OrdenDeCompra, :estado => ['Cotizando', 'Aceptado', 'Rechazado']
+      cannot :edit_status, Solicitud
+      cannot :edit_status, OrdenDeCompra
+      can :read, Proveedor
+
+    elsif user.bodeguero?
       can :read, Usuario, :id => user.id
       can :manage, Solicitud
       can :manage, Bodega
