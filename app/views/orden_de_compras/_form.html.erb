@@ -18,6 +18,14 @@
     <%= form.number_field :cantidad %>
   </div>
 
+  <% if can? :edit_status, OrdenDeCompra %>
+    <div class="field">
+      <%= form.label :estado %>
+      <%= form.select(:estado, [['Nuevo', 'Nuevo'], ['Cotizando', 'Cotizando'],
+                                ['Rechazado', 'Rechazado'], ['Recibido', 'Recibido']]) %>
+    </div>
+  <% end %>
+
   <div class="actions">
     <%= form.submit %>
   </div>

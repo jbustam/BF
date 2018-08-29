@@ -71,6 +71,6 @@ class OrdenDeComprasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def orden_de_compra_params
-      params.require(:orden_de_compra).permit(:material_id, :cantidad, :usuario)
+      params.require(:orden_de_compra).permit(:material_id, :cantidad, :usuario, :estado)
     end
 end
