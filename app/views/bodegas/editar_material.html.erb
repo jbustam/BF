@@ -1,0 +1,14 @@
+<h1>Editar material</h1>
+
+<%= form_with url: editar_material_bodega_path(producto: @producto) do |form| %>
+
+  <div class="field">
+    <%= form.label :cantidad %>
+    <%= form.text_field :cantidad %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+
+<% end %>

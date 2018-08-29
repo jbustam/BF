@@ -16,4 +16,10 @@ Rails.application.routes.draw do
   get :destroy_material_bodega, to: 'bodegas#destroy_material', as: :destroy_material_bodega
   get :destroy_material_proveedor, to: 'proveedors#destroy_material', as: :destroy_material_proveedor
 
+  get :editar_material_bodega, to: 'bodegas#editar_material'
+  post :editar_material_bodega, to: 'bodegas#actualizar_material'
+
+  get :editar_material_solicitud, to: 'solicituds#editar_material'
+  post :editar_material_solicitud, to: 'solicituds#actualizar_material'
+
 end

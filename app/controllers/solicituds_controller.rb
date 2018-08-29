@@ -14,6 +14,23 @@ class SolicitudsController < ApplicationController
   def show
   end
 
+  def editar_material
+    @producto = MaterialsSolicitud.find(params[:producto])
+  end
+
+  def actualizar_material
+    @producto = MaterialsSolicitud.find(params[:producto])
+    respond_to do |format|
+      if @producto.update(cantidad: params[:cantidad])
+        format.html { redirect_to solicitud_path(@producto.solicitud_id), notice: 'Material fue actualizado exitosamente' }
+        format.json { render :show, status: :ok, location: @producto }
+      else
+        format.html { render :edit }
+        format.json { render json: @producto.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   # GET /solicituds/new
   def new
     @solicitud = Solicitud.new

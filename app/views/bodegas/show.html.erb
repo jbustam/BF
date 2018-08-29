@@ -16,7 +16,7 @@
       <% @bodega.bodegas_materials.each do |producto| %>
         <td><%= Material.find_by(id: producto.material_id).descripcion %></td>
         <td><%= producto.cantidad %></td>
-        <td><%= link_to 'Editar', solicituds_path %></td>
+        <td><%= link_to 'Editar', editar_material_bodega_path(producto: producto)%></td>
         <td><%= link_to 'Eliminar', destroy_material_bodega_url(producto: producto, bodega: @bodega), data: { confirm: '¿Esta seguro?' } %>
     </tr>
       <% end %>

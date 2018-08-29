@@ -12,6 +12,23 @@ class BodegasController < ApplicationController
   def show
   end
 
+  def editar_material
+    @producto = BodegasMaterial.find(params[:producto])
+  end
+
+  def actualizar_material
+    @producto = BodegasMaterial.find(params[:producto])
+    respond_to do |format|
+      if @producto.update(cantidad: params[:cantidad])
+        format.html { redirect_to bodega_path(@producto.bodega_id), notice: 'Material fue actualizado exitosamente' }
+        format.json { render :show, status: :ok, location: @bodega }
+      else
+        format.html { render :edit }
+        format.json { render json: @producto.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   def destroy_material
     @producto = BodegasMaterial.find(params[:producto])
     @producto.destroy
@@ -96,4 +113,5 @@ class BodegasController < ApplicationController
       params.require(:bodega).permit(:nombre, :ubicacion,
         :materials_attributes => [:id, :descripcion, :cantidad])
     end
+
 end
